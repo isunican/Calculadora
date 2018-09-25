@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextView android:id="@+id/txtResultado"
+        android:text="@string/resultado"
+        android:textSize="20sp"
+        android:paddingBottom="5sp"
+        android:layout_above="@+id/operacion"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+        <RelativeLayout
+            android:id="@+id/operacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <EditText
+                android:id="@+id/txtOperador1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/operador"
+                android:paddingRight="10sp"
+                android:inputType="numberDecimal"/>
+
+            <Spinner
+                android:id="@+id/spnOperacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/txtOperador1"/>
+
+            <EditText
+                android:id="@+id/txtOperador2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10sp"
+                android:hint="@string/operador"
+                android:layout_toRightOf="@+id/spnOperacion"
+                android:inputType="numberDecimal"/>
+
+        </RelativeLayout>
+
+
+
+        <Button
+            android:id="@+id/btnCalcula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/calcula"
+            android:layout_below="@+id/operacion"/>
+
+
+
+</RelativeLayout>

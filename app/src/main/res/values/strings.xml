@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Calculadora</string>
+    <string name="title_simple">Calculadora Simple</string>
+    <string name="title_acercade">Acerca de</string>
+    <string name="calcula">Calcula</string>
+    <string name="resultado">Resultado...</string>
+    <string name="operador">Operador</string>
+    <string name="error_sinvalores">Introduce los valores</string>
+    <string-array name="operacionesArray">
+        <item>+</item>
+        <item>-</item>
+        <item>*</item>
+        <item>/</item>
+    </string-array>
+    <string name="acercaDe_texto">Aplicación realizada por Carlos Blanco</string>
+</resources>

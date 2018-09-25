@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="title_simple">Simple calculator</string>
+    <string name="title_acercade">About</string>
+    <string name="calcula">Calculate</string>
+    <string name="resultado">Result...</string>
+    <string name="operador">Operator</string>
+    <string name="error_sinvalores">Insert values</string>
+    <string-array name="operacionesArray">
+        <item>+</item>
+        <item>-</item>
+        <item>*</item>
+        <item>/</item>
+    </string-array>
+    <string name="acercaDe_texto">App developed by Carlos Blanco</string>
+</resources>
