@@ -42,6 +42,5 @@ public class MainActivityUITest {
 
         // Check behaviour
         onView(withId(R.id.txtResultado)).check(matches(withText("5.0")));
-
     }
 }
