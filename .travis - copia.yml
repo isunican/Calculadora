@@ -30,6 +30,8 @@ android:
   - tools
   - tools # Running this twice get's the latest build tools
   - platform-tools
+  - android-${ANDROID_API}
+  - build-tools-${ANDROID_BUILD_TOOLS}
   - extra
   - android-$EMULATOR_API_LEVEL
   - extra-google-m2repository
@@ -46,8 +48,6 @@ android:
 
 before_install:
 - chmod +x gradlew
-- yes | sdkmanager "platforms;android-28"
-- yes | sdkmanager "build-tools;28.0.3"
 
 script:
 - ./gradlew clean test build sonarqube
