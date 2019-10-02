@@ -13,7 +13,7 @@ public class CalculadoraTest {
     public void sumaTest() {
         c.setOperador1(1);
         c.setOperador2(1);
-        assertTrue(c.suma() == 3);
+        assertTrue(c.suma() == 2);
 
         c.setOperador1(-1);
         assertTrue(c.suma() == 0);
