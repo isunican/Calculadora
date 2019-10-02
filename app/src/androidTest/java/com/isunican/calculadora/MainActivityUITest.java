@@ -27,12 +27,6 @@ public class MainActivityUITest {
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
-    @Test
-    public void sumaTest() {
-        // Type operators
-        onView(withId(R.id.txtOperador2)).perform(replaceText("2.0"));
-        onView(withId(R.id.txtOperador1)).perform(replaceText("3.0"));
-
         // Select Operation
         onView(withId(R.id.spnOperacion)).perform(click());
         onData(allOf(is(instanceOf(String.class)), is("+"))).perform(click());
