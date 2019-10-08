@@ -25,7 +25,7 @@ env:
  - ANDROID_EMULATOR_LEVEL=22
  - ADB_INSTALL_TIMEOUT=5 # minutes
  #- ANDROID_ABI=armeabi-v7a
- - ANDROID_ABI="default/armeabi-v7a"
+ - ANDROID_ABI="default;armeabi-v7a"
  - ANDROID_TAG=google_apis
  - QEMU_AUDIO_DRV=none
 
@@ -59,7 +59,7 @@ script:
   - ./gradlew clean test sonarqube
   - mkdir -p build/reports
   - android list targets
-  - echo no | android create avd --force -n test -t "android-"$ANDROID_EMULATOR_LEVEL --abi $ANDROID_ABI #--tag $ANDROID_TAG
+  - echo no | android create avd --force -n test -t "android-"$ANDROID_EMULATOR_LEVEL --abi $default/armeabi-v7a #--tag $ANDROID_TAG
   - emulator -avd test -no-window &
   #  - ./gradlew dependencyCheckAnalyze
   #- ./gradlew assembleDebugAndroidTest -PdisablePreDex --continue --stacktrace
