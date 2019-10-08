@@ -55,12 +55,14 @@ before_install:
 
 script:
   - ./gradlew clean test sonarqube
+  - mkdir -p build/reports
   - android list targets
   - echo no | android create avd --force -n test -t "android-"$ANDROID_EMULATOR_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
-  - emulator -avd test -no-window &
-  - mkdir -p build/reports
+  - emulator -avd test -no-audio -no-window &
   #  - ./gradlew dependencyCheckAnalyze
-  - ./gradlew assembleDebugAndroidTest -PdisablePreDex --continue --stacktrace
+  #- ./gradlew assembleDebugAndroidTest -PdisablePreDex --continue --stacktrace
   - android-wait-for-emulator
   #  - adb shell input keyevent 82 &
-  - ./gradlew connectedDebugAndroidTest -PdisablePreDex --continue --stacktrace
+  #- ./gradlew connectedDebugAndroidTest -PdisablePreDex --continue --stacktrace
+  - - ./gradlew connectedCheck -PdisablePreDex --continue --stacktrace
+
