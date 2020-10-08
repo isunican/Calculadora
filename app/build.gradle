@@ -1,8 +1,8 @@
 plugins {
-    id "org.sonarqube" version "2.7.1" }
+    id "org.sonarqube" version "3.0" }
 
-apply plugin: "jacoco"
 apply plugin: 'com.android.application'
+apply plugin: "jacoco-android"
 
 android {
     compileSdkVersion 30
@@ -21,13 +21,31 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            testCoverageEnabled true
+        }
     }
 
     testOptions{
         unitTests{
             includeAndroidResources = true
         }
+        unitTests.all {
+            jacoco {
+                includeNoLocationClasses = true
+            }
+        }
     }
+}
+
+jacoco {
+    toolVersion = "0.8.6"
+}
+
+jacocoAndroidUnitTestReport {
+    csv.enabled false
+    html.enabled false
+    xml.enabled true
 }
 
 sonarqube {
@@ -37,7 +55,14 @@ sonarqube {
         property "sonar.login", "120537998e2c122476f30cade8d4a25865210fa6"
         property "sonar.projectKey", "CalculadoraSimple"
         property "sonar.projectName", "CalculadoraSimple"
-        property "sonar.jacoco.reportPaths", "${project.buildDir}/jacoco/testDebugUnitTest.exec"
+
+        // I need this property to avoid the error where sonarqube does not close some files and
+        // prevents a clean afterwards
+        property "sonar.scm.disabled", true
+
+        // this property is deprecated, now I use the xml file defined below it
+        // property "sonar.jacoco.reportPaths", "${project.buildDir}/jacoco/testDebugUnitTest.exec"
+        property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/reports/jacoco/jacocoTestDebugUnitTestReport/jacocoTestDebugUnitTestReport.xml"
     }
 }
 
